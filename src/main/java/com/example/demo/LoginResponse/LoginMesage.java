@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LoginMesage {
     String message;
-//    Boolean status;
+    Boolean status;
     
 }

@@ -1,4 +1,5 @@
 package com.example.demo.Service;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -37,15 +38,15 @@ public class UserIMPL implements UserService {
 			if (isPwdRight) {
 				Optional<User> user = userRepo.findOneByEmailAndPassword(loginDTO.getEmail(), encodedPassword);
 				if (user.isPresent()) {
-					return new LoginMesage("Login Success");
+					return new LoginMesage("Login Success",true);
 				} else {
-					return new LoginMesage("Login Failed");
+					return new LoginMesage("Login Failed",false);
 				}
 			} else {
-				return new LoginMesage("password incorrect");
+				return new LoginMesage("password incorrect",false);
 			}
 		}else {
-			return new LoginMesage("Email does not exits");
+			return new LoginMesage("Email does not exits",false);
 		}
 	}
 }
