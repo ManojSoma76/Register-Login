@@ -1,11 +1,12 @@
 package com.example.demo.dto;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 public class LoginDTO {
 	@Email(message = "invalid email id")	
 	private String email;
-
+	@NotBlank(message = "Password shouldn't be null or empty")
 	private String password;
 	public LoginDTO() {
 	}
